@@ -1,0 +1,91 @@
+:root {
+    --primary-color: rgb(24, 24, 24);
+    --primary-background-color: rgb(221, 221, 221);
+    --secondary-color: rgb(75, 75, 75);
+    --secondary-background-color: rgb(255, 255, 255);
+    --highlight-color: #f23d75;
+    --box-shadow-color: rgb(201, 201, 201);
+    --disabled-button-color: rgb(175, 175, 175);
+    --border-radius: 1rem;
+    ::-webkit-scrollbar { 
+        display: none; 
+    }
+}
+
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: sans-serif;
+    line-height: 1.15;
+    cursor: default;
+    word-break: break-word;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+
+
+blockquote, body, dd, dl, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, legend, ol, p, pre, ul {
+    margin: 0;
+    padding: 0;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+}
+
+address, dl, ol, ul {
+    margin-bottom: 1rem;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+input,
+textarea,
+select,
+button {
+    outline: none;
+}
+
+input {
+    line-height: normal;
+}
+
+label,
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}

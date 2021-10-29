@@ -1,0 +1,63 @@
+*{
+    list-style: none;
+
+}
+
+body{
+    line-height: 1.5;
+    font-family: $primary-font;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #202020;
+    text-align: left;
+    background-color: #fff;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+body,html{
+    font-size: 13px;
+    font-family: $primary-font;
+
+}
+
+header {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 0;
+    text-align: center;
+}
+
+.container{
+    width: 1635px;
+}
+
+a{
+    cursor: pointer;
+}
+
+.btn-sign-up {
+    display: inline-block;
+    border-radius: 20px;
+    background-color: $dark-pink;
+    font-size: 16px;
+    line-height: 40px!important;
+    height: 40px;
+    margin-top: 5px;
+    padding: 0 30px;
+    cursor: pointer;
+    color: #fff!important;
+}
+
+.btn-log-in {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: $dark-pink!important;
+    cursor: pointer;
+    line-height: 40px!important;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 10px;
+}

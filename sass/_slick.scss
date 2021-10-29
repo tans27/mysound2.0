@@ -1,0 +1,77 @@
+
+
+.slick-slider {
+    position: relative;
+    .slick-slide{
+        margin: 0 10px;
+        img{
+            border-radius: 15px;
+        }
+    }
+    .slick-dots{
+        display: none !important;
+    }
+
+    .slick-next,
+    .slick-prev {
+        background-color: transparent;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        width: 50px;
+        line-height: 0;
+        font-size: 0;
+        cursor: pointer;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        padding: 0;
+        border: none;
+    }
+
+    .slick-next {
+        right: 70px;
+    }
+
+    .slick-prev {
+        left: -5px;
+    }
+
+    .slick-next::before {
+        content: url(https://cdn.musicvine.com/images/svg/next-slider.svg);
+    }
+    .slick-prev::before {
+        content: url(https://cdn.musicvine.com/images/svg/prev-slider.svg);
+        /* opacity: 0; */
+        -webkit-transition: 0.25s;
+        transition: 0.25s;
+        left: 0;
+    }
+
+    .slick-next:before, .slick-prev:before {
+        font-family: $secondary-font;
+        font-size: 20px;
+        line-height: 1;
+        color: #fff;
+        opacity: .75;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+
+.slick-list a:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slick-list a:after {
+    content: "";
+    display: block;
+}
+
+.slick-track{
+    width: 1000vh!important;
+}
