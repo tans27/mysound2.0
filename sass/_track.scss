@@ -1,0 +1,36 @@
+.track {
+    margin-left: 20px;
+    flex-direction: column;
+    &_items {
+        margin-bottom: 20px;
+        max-width: 100%;
+        &-info {
+            display: flex;
+            align-items: center;
+            gap: 0 20px;
+            .track_items-avatar {
+                .music_img {
+                    max-width: 100px;
+                    border-radius: 50px;
+                }
+            }
+
+            audio {
+                width: 50%;
+            }
+        }
+        .track_desc {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+
+            .music_name{
+                > p {
+                    font-family: $secondary-font;
+                    font-weight: 500;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

@@ -36,7 +36,11 @@ a{
     cursor: pointer;
 }
 
+
+
+
 .btn-sign-up {
+    border: none;
     display: inline-block;
     border-radius: 20px;
     background-color: $dark-pink;
@@ -60,4 +64,13 @@ a{
     height: 40px;
     margin-top: 5px;
     margin-right: 10px;
+}
+
+input {
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+    padding-left: 10px;
+    font-family: "Noto Sans JP", sans-serif;
 }

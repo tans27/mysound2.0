@@ -22,11 +22,15 @@
     }
     &_content {
         width: 85%;
+        max-width: 100%;
         height: 100vh;
     }
 }
 
 .layout_sidebar {
+    
+
+
     .active {
         color: #000;
         text-decoration: none;
@@ -51,7 +55,6 @@
                 color: #aaa;
                 gap: 0 15px;
                 display: list-item;
-                font-size: 18px;
                 margin: 20px 0;
             }
             .bi {

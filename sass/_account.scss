@@ -1,0 +1,45 @@
+.account_wrapper {
+    margin: 2rem 50rem 0 3rem;
+    display: flex;
+    // flex-direction: column;
+    // margin: 0 auto;
+    gap: 0 3rem;
+    &-form {
+        
+        width: 50%;
+        .field {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+            gap: 10px 0;
+            input{
+                height: 50px;
+                border: none;
+                border-radius: 10px;
+                background-color: #F2F2F2;
+                padding-left: 10px;
+                font-family: $primary-font;
+            }
+
+
+            &_button {
+                margin: 0 auto;
+                text-align: center;
+
+                .save_btn:hover{
+                    background-color: $dark-pink;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &-avatar{
+        margin: auto;
+    }
+
+}
+
+.account_avatar {
+    max-width: 15rem;
+    margin: 0 auto;
+}
