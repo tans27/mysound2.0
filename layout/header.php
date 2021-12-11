@@ -19,6 +19,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css" />
+    
 </head>
 
 <body>
@@ -68,9 +69,13 @@
                             <input type="text" class="search_input" placeholder="Tìm kiếm bài hát, nghệ sĩ, thể loại" />
                         </form>
                     </div>
-                    <div class="header_main-btn">
+                    <!-- <div class="header_main-btn">
                         <span class="btn-sign-up" id="signup-welcome">Đăng Ký</span>
                         <span class="btn-log-in" id="login">Đăng Nhập</span>
-                    </div>
+                    </div> -->
+                    <?php
+                            include './layout/header_menu.php';
+                        
+                    ?>
                 </div>
             </header>

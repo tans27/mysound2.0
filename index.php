@@ -1,9 +1,12 @@
 <?php 
+    session_start();
+    // if(!isset($_SESSION["user"])){
+    //     header("location:./account/login/login.php");
+    // }
     include "./layout/header.php";
     include './admin/functions-account.php';
     require_once './admin/connect.php';
     $connect = ConnectDB();
-
 
 ?>
 
@@ -30,7 +33,7 @@
 						            while($row = $result->fetch_assoc()) {
                                         echo '
                                         <a href="./browse/genre.html" class="list_item">
-                                            <img src="admin/upload/genre'.$row['image'].'" alt="" />
+                                            <img src="./admin/upload/genre/'.$row['image'].'" alt="" />
                                             <span class="item_name">'.$row["genre_name"].'</span>
                                         </a>
                                     ';}

@@ -30,9 +30,8 @@ if(isset($_POST['submit'])){
         $sql = "INSERT INTO genres (genre_name, image) VALUES ('$genre_name', '$genre_img')";
 
         if (mysqli_query($conn, $sql)) {
-            $message = "Bạn đã tạo thành công";
-            echo "<script type='text/javascript'>alert('$message');</script>";
-            header('Location: http://localhost/mysound2.0/admin/genre-list.php');
+            echo 'Tạo mới thành công';
+            header('Location: http://localhost/mysound2.0/admin/index.php');
             
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

@@ -69,11 +69,11 @@ if (mysqli_query($connect, $sql_genre)) {
 // create table user 
 $sql_user = "CREATE TABLE user (
     `id_user` INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name_user` VARCHAR(100) NOT NULL ,
     `username_user` VARCHAR(100) NOT NULL ,
+    `password_user` VARCHAR(100) NOT NULL ,
+    `fullname` VARCHAR(100) NOT NULL ,
     `email_user` VARCHAR(100) NOT NULL ,
     `user_type` VARCHAR(100) NOT NULL ,
-    `password_user` VARCHAR(100) NOT NULL ,
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)"
     ;
     

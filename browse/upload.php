@@ -109,10 +109,18 @@ require_once '../admin/connect.php';
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Thể loại</label>
                                             <select name="genre_id" class="form-control" id="exampleFormControlSelect1">
-                                                <option value="1">Pop</option>
-                                                <option value="2">Ballad</option>
-                                                <option value="3">Rap</option>
-                                                <option value="4">Indie</option>
+                                            
+                                            <?php
+                                                $sql = "SELECT * FROM genres";
+                                                $result = mysqli_query($conn, $sql);
+
+                                                if (mysqli_num_rows($result) > 0) {
+                                                // output data of each row
+                                                while($row = mysqli_fetch_assoc($result)) {
+                                                    echo '<option value="'.$row["id"].'">'.$row["genre_name"].'</option>';
+                                                }
+                                            }
+                                            ?>
                                             </select>
                                         </div>                  
                                         <div class="form-group">

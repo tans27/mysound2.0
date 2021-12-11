@@ -18,7 +18,7 @@ $conn = ConnectDB();
                 <h1>Admin</h1>
             </div>
 
-            <form action="/admin/create-genre.php" method="post">
+            <form action="create-genre.php" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nhập thể loại</label>
                     <input name="genre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên thể loại">

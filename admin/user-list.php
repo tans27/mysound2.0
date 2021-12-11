@@ -40,7 +40,7 @@ $conn = ConnectDB();
               while($row = $result->fetch_assoc()) {
                   echo "<tr>
                           <td>".$row['id_user']."</td>
-                          <td>".$row['name_user']."</td>
+                          <td>".$row['fullname']."</td>
                           <td>".$row['username_user']."</td>
                           <td>".$row['email_user']."</td>
                           <td>".$row['user_type']."</td>
