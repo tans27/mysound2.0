@@ -133,7 +133,7 @@ audio::-webkit-media-controls-mute-button {
   background-color: rgba(0, 0, 0, 0.05);
 }
 .btn .btn--size-s {
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto", sans-serif;
   padding: 0 30px;
 }
 .btn .btn--disabled {
@@ -153,7 +153,7 @@ audio::-webkit-media-controls-mute-button {
 
 body {
   line-height: 1.5;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   color: #202020;
@@ -165,7 +165,7 @@ body {
 
 body, html {
   font-size: 13px;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -263,13 +263,19 @@ input {
   color: #aaa;
 }
 .layout_sidebar-menu .menu_item > span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .layout_sidebar-menu .menu_item > a {
   color: #aaa;
   gap: 0 15px;
   display: list-item;
   margin: 20px 0;
+}
+.layout_sidebar-menu .menu_item > a span {
+  font-size: 18px;
+}
+.layout_sidebar-menu .menu_item a:hover {
+  color: #000;
 }
 .layout_sidebar-menu .menu_item .bi {
   font-size: 18px;
@@ -279,6 +285,7 @@ input {
   color: #000;
 }
 .layout_sidebar-menu .active a {
+  font-weight: 700;
   color: #000;
 }
 .layout_sidebar li {
@@ -300,7 +307,7 @@ input {
   padding-top: 40px;
   padding-left: 10px;
   font-weight: 900;
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .home_page-title .title_heading {
   font-size: 50px;
@@ -325,7 +332,7 @@ input {
   align-items: center;
 }
 .home_page-content .content_wrapper-item .item_title {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 400;
   margin-left: 7px;
@@ -333,7 +340,7 @@ input {
 .home_page-content .content_wrapper-item .list_item {
   display: flex;
   flex-direction: column;
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto", sans-serif;
   align-items: center;
 }
 .home_page-content .content_wrapper-form {
@@ -429,7 +436,7 @@ input {
   left: 0;
 }
 .slick-slider .slick-next:before, .slick-slider .slick-prev:before {
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   line-height: 1;
   color: #fff;
@@ -479,200 +486,16 @@ input {
   flex-direction: column;
 }
 .track_items .track_desc .music_name > p {
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 20px;
 }
 
-.audio-player {
-  z-index: 3;
-  padding: 0 20px;
-  width: 100vw;
-  max-width: 1920px;
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
-  background-color: var(--secondary-background-color);
-  border-radius: var(--border-radius);
-  bottom: 0;
-  position: fixed;
-}
-.audio-player-cover {
-  max-width: 100px;
-}
-.audio-player-cover img {
-  border-radius: 50%;
-}
-.audio-player-control {
-  display: flex;
-  align-items: center;
-}
-.audio-player-control .prev-button,
-.audio-player-control .next-button {
-  min-width: 35px;
-  /* Reset default button styles */
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-.audio-player-control .prev-button-icon,
-.audio-player-control .next-button-icon {
-  margin: auto;
-  width: 40px;
-  padding: 1rem;
-}
-
-.play-button {
-  min-width: 40px;
-  /* Reset default button styles */
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-.play-button-icon {
-  margin: auto;
-  width: 60px;
-}
-
-.like-button {
-  min-width: 50px;
-  /* Reset default button styles */
-  border: none;
-  background-color: transparent;
-  outline: none;
-  cursor: pointer;
-}
-.like-button-icon {
-  margin: auto;
-  width: 50px;
-  padding: 0 1rem;
-}
-
-/* Main player body, which includes title, waveform, volume and timecode */
-.player-body {
-  width: 100%;
-  padding: 1rem;
-}
-
-/* Audio track title */
-.title {
-  width: 100%;
-  font-weight: 600;
-}
-
-/* Main waveform */
-.waveform {
-  width: 100%;
-  padding: 0.5rem 0;
-}
-
-/* Controls include volume mute/unmute, volume slider and timecode */
-.controls {
-  display: flex;
-  justify-content: space-between;
-}
-
-/* Timecode */
-.timecode {
-  color: var(--secondary-color);
-}
-
-/* Volume */
-.volume {
-  display: flex;
-  align-items: center;
-}
-
-.volume-icon {
-  width: 50px;
-  cursor: pointer;
-}
-
-.volume-slider {
-  margin: 0 1rem;
-  cursor: pointer;
-  width: 100%;
-  outline: none;
-  -webkit-appearance: none;
-  background: transparent;
-}
-
-/* Custom volume slider */
-.volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 1.5rem;
-  width: 1.5rem;
-  border: none;
-  border-radius: 50%;
-  background: var(--highlight-color);
-  margin-top: -0.6rem;
-}
-
-.volume-slider::-moz-range-thumb {
-  -webkit-appearance: none;
-  height: 1.5rem;
-  width: 1.5rem;
-  border: none;
-  border-radius: 50%;
-  background: var(--highlight-color);
-}
-
-.volume-slider::-ms-thumb {
-  -webkit-appearance: none;
-  height: 1.5rem;
-  width: 1.5rem;
-  border: none;
-  border-radius: 50%;
-  background: var(--highlight-color);
-}
-
-.volume-slider::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 0.25rem;
-  background-color: var(--secondary-color);
-  border-radius: var(--border-radius);
-}
-
-.volume-slider::-ms-track {
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-  width: 100%;
-  height: 0.25rem;
-  background-color: var(--secondary-color);
-  border-radius: var(--border-radius);
-}
-
-/* Muted/disabled volume slider */
-.volume-slider[disabled] {
-  cursor: not-allowed;
-}
-
-.volume-slider[disabled]::-webkit-slider-thumb {
-  background-color: var(--disabled-button-color);
-}
-
-.volume-slider[disabled]::-moz-range-thumb {
-  background-color: var(--disabled-button-color);
-}
-
-.volume-slider[disabled]::-ms-thumb {
-  background-color: var(--disabled-button-color);
-}
-
-.volume-slider[disabled]::-webkit-slider-runnable-track {
-  background-color: var(--disabled-button-color);
-}
-
-.volume-slider[disabled]::-ms-track {
-  background-color: var(--disabled-button-color);
-}
-
 .account_wrapper {
-  margin: 2rem 50rem 0 3rem;
+  margin: 5rem 50rem 0 20rem;
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0 3rem;
 }
 .account_wrapper-form {
@@ -690,7 +513,7 @@ input {
   border-radius: 10px;
   background-color: #F2F2F2;
   padding-left: 10px;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .account_wrapper-form .field_button {
   margin: 0 auto;
@@ -704,9 +527,22 @@ input {
   margin: auto;
 }
 
-.account_avatar {
+.account_profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 5rem;
+}
+.account_profile-avatar {
   max-width: 15rem;
-  margin: 0 auto;
+}
+.account_profile-info .info_name {
+  font-weight: 700;
+  font-size: 24px;
+}
+.account_profile-info .info_username {
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .header {
@@ -730,7 +566,7 @@ input {
   position: relative;
 }
 .header_main-search .search input {
-  font-family: "Prompt", sans-serif;
+  font-family: "Roboto", sans-serif;
   border: 1px solid #e6e6e6;
   box-shadow: none;
   color: #232323;
@@ -769,7 +605,7 @@ input {
   font-size: 16px;
 }
 .header_main-search .search input::-webkit-input-placeholder {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .header_main-search .search input:focus {
   box-shadow: 0 0 10px #f23d75;
@@ -927,7 +763,7 @@ html {
   height: 34px;
   text-decoration: none;
   border: none;
-  border-radius: 2px;
+  border-radius: 25px;
   font-size: 1.5rem;
   padding: 0 12px;
   outline: none;
@@ -940,25 +776,8 @@ html {
   line-height: 1.6rem;
 }
 
-.btn.btn--normal:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.btn.btn--size-s {
-  padding: 0 8px;
-  height: 32px;
-  font-size: 1.2rem;
-}
-
-.btn.btn--primary {
-  color: var(--white-color);
-  background-color: var(--primary-color);
-}
-
-.btn.btn--disabled {
-  cursor: default;
-  color: #ccc;
-  background-color: #c3c3c3;
+.btn-border {
+  border: 1px solid #f23d75;
 }
 
 /* Selection */
@@ -1023,41 +842,6 @@ html {
 
 .select-input__link:hover {
   color: var(--primary-color);
-}
-
-/* Pagination */
-.pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-}
-
-.pagination-item {
-  margin: 0 12px;
-}
-
-.pagination-item--active .pagination-item__link {
-  color: var(--white-color);
-  background-color: var(--primary-color);
-}
-
-.pagination-item--active .pagination-item__link:hover {
-  background-color: var(--background-color-btn);
-}
-
-.pagination-item__link {
-  --height: 30px;
-  display: block;
-  text-decoration: none;
-  font-size: 2rem;
-  font-weight: 300;
-  color: #939393;
-  min-width: 40px;
-  height: var(--height);
-  text-align: center;
-  line-height: var(--height);
-  border-radius: 2px;
 }
 
 /*# sourceMappingURL=app.css.map */

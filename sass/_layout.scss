@@ -49,13 +49,21 @@
             color: #aaa;
 
             >span{
-                font-size: 14px;
+                font-size: 16px;
             }
             > a {
                 color: #aaa;
                 gap: 0 15px;
                 display: list-item;
                 margin: 20px 0;
+
+                span{
+                    font-size: 18px;
+                }
+            }
+
+            a:hover{
+                color: #000;
             }
             .bi {
                 font-size: 18px;
@@ -65,8 +73,10 @@
                 color: #000;
             }
         }
+        
         .active {
             a {
+                font-weight: 700;
                 color: #000;
             }
         }

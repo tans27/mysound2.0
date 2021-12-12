@@ -1,8 +1,8 @@
 .account_wrapper {
-    margin: 2rem 50rem 0 3rem;
+    margin: 5rem 50rem 0 20rem;
     display: flex;
-    // flex-direction: column;
-    // margin: 0 auto;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0 3rem;
     &-form {
         
@@ -39,7 +39,23 @@
 
 }
 
-.account_avatar {
-    max-width: 15rem;
-    margin: 0 auto;
+.account_profile {
+    &-avatar{
+        max-width: 15rem;
+    }
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 5rem;
+
+    &-info{
+        .info_name{
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .info_username{
+            font-weight: 300;
+            font-size: 16px;
+        }
+    }
 }

@@ -4,7 +4,6 @@
     //     header("location:./account/login/login.php");
     // }
     include "./layout/header.php";
-    include './admin/functions-account.php';
     require_once './admin/connect.php';
     $connect = ConnectDB();
 

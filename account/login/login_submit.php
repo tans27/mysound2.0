@@ -23,7 +23,10 @@
             header("location:../../index.php");
 
         }else {
-            echo "Bạn đã đăng nhập sai username_user hoặc password. Vui lòng kiểm tra lại!!";
+            $_SESSION["thongbao"] =  "Bạn đã đăng nhập sai username_user hoặc password. Vui lòng kiểm tra lại!!";
+             
+            header("location:login.php");
+
         }
     }else {
         header("location:login.php");
