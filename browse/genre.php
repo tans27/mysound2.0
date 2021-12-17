@@ -1,5 +1,7 @@
 <?php
 require_once '../admin/connect.php';
+session_start();
+$connect = ConnectDB();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,13 +17,14 @@ require_once '../admin/connect.php';
     <link rel="stylesheet" href="../css/app.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
+
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css" />
+
+
 </head>
 
 <body>
@@ -33,14 +36,14 @@ require_once '../admin/connect.php';
             <div class="layout_sidebar-menu">
                 <ul>
                     <li class="menu_item active">
-                        <a href="#"><i class="bi bi-music-note-beamed"></i><span>Khám Phá</span></a>
+                        <a href="../index.php"><i class="bi bi-music-note-beamed"></i><span>Khám Phá</span></a>
                     </li>
                     <li class="menu_item">
                         <span><i class="bi bi-music-player-fill"></i><span>Podcast
                             </span><small>(commingsoon)</small></span>
                     </li>
                     <li class="menu_item">
-                        <a href=""><i class="bi bi-activity"></i><span>Trending</span></a>
+                        <a href="./newest.php"><i class="bi bi-activity"></i><span>Bài hát mới</span></a>
                     </li>
                     <li>
                         <hr />
@@ -64,36 +67,95 @@ require_once '../admin/connect.php';
             <header class="header">
                 <div class="header_main">
                     <div class="header_main-search">
-                        <form action="." class="search">
+                        <form action="./search.php" class="search" method="get">
+                            <input class="search_button bd-none" type="submit" name="ok" value="search"
+                                style="visibility: hidden;">
                             <button class="search_button">
                                 <i class="bi bi-search"></i>
                             </button>
-                            <input type="text" class="search_input" placeholder="Tìm kiếm bài hát, nghệ sĩ, thể loại" />
+                            </input>
+                            <input type="text" name="search" class="search_input"
+                                placeholder="Tìm kiếm bài hát, nghệ sĩ, thể loại" />
                         </form>
                     </div>
-                    <div class="header_main-btn">
-                        <span class="btn-sign-up" id="signup-welcome">Đăng Ký</span>
-                        <span class="btn-log-in" id="login">Đăng Nhập</span>
-                    </div>
+                    <?php
+                        if (isset($_SESSION['user']) && $_SESSION['user']){
+        
+                            echo '
+                            <div class="header_main-acc">
+                            <a href="./browse/account.php" class="acc-info">';
+                            if (isset($_SESSION['avatar_user']) && $_SESSION['avatar_user']){
+                                echo'
+                                <img src="../admin/upload/users/'.$_SESSION['avatar_user'].'" alt="" class="acc_avt">';
+                            }
+                            else{
+                                echo'
+                                <img src="../assets/images/default-avatar.jpg" alt="" class="acc_avt">';
+                            };
+                            echo'
+                                <span class="header__navbar-user-name">' . $_SESSION['user'] . '</span>
+                            </a>
+                    
+                                    <ul class="acc_menu">
+                                        <li class="header__navbar-user-item">
+                                            <a href="./account.php?username='.$_SESSION['user'].'">Tài khoản của tôi</a>
+                                        </li>
+                                        <li class="header__navbar-user-item">
+                                            <a href="./upload.php">Upload nhạc</a>
+                                        </li>
+                                        <li class="header__navbar-user-item">
+                                            <a href="./manager.php?username='.$_SESSION['user'].'">Quản lý nhạc đã upload</a>
+                                        </li>
+                                        <li class="header__navbar-user-item header__navbar-user-item--separate">
+                                            <a href="../account/login/logout.php">Đăng xuất</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            ';
+                        }else{
+                            echo '
+                            <div class="header_main-btn header_main">
+                                <a href="../account/register/register.php" class="btn-sign-up" id="signup-welcome">Đăng Ký</a>
+                                <a href="../account/login/login.php" class="btn-log-in" id="login">Đăng Nhập</a>
+                            </div>
+                            ';
+                        }
+                    ?>
                 </div>
             </header>
 
             <div class="main_content">
                 <section class="home_page">
                     <div class="container">
+                    <?php 
+                                if(isset($_GET['id'])){
+                                    $id = $_GET['id'];
+                                }
+                                else{
+                                    $id = "";
+                                }
+
+                                $sql = "select * from genres where id='$id'";
+                                $result = $connect->query($sql);
+                    
+                                if ($result->num_rows > 0) {
+                                    while($genre = $result->fetch_assoc()) {
+                                    echo'
                         <div class="home_page-title">
-                            <span class="title_heading">Nhạc Pop</span>
+                            <span class="title_heading">'.$genre['genre_name'].'</span>
                             <span class="title_sub-heading">Nắm bắt âm nhạc xu hướng hiện tại.</span>
-                        </div>
+                        </div>';}}?>
                         <div class="home_page-content">
                             <div class="content_wrapper">
+                            
                                 <div class="content_wrapper-item">
                                     <span class="item_title"> Khám phá </span>
                                 </div>
                                 <div class="content_wrapper-tracks">
                                     <div class="track">
+
                                         <?php 
-                                            $sql = "select * from musics";
+                                            $sql = "SELECT * from musics where genre_id='$id'";
                                             $result = $connect->query($sql);
                                 
                                             if ($result->num_rows > 0) {
@@ -106,11 +168,15 @@ require_once '../admin/connect.php';
                                                             <img src="../admin/upload/music/img/'.$row['image'].'" alt="" class="music_img" />
                                                         </div>
                                                         <div class="track_desc">
+                                                            
                                                             <div class="music_name">
-                                                                <p>'.$row["artist"].'</p>
+                                                                <p>'.$row["name"].'</p>
                                                             </div>
                                                             <div class="music_artist">
-                                                                <p>'.$row["name"].'</p>
+                                                                <a href="./artist.php?artist='.$row['artist'].'">'.$row["artist"].'</a>
+                                                            </div>
+                                                            <div class="music_artist">
+                                                                <a href="./user.php?user='.$row['uploaded_by'].'" style="color:#ccc"><i>Uploaded by: @'.$row["uploaded_by"].'</i></a>
                                                             </div>
                                                         </div>
                                                         <audio controls src="../admin/upload/music/audio/'.$row['file'].'"></audio>
@@ -119,7 +185,7 @@ require_once '../admin/connect.php';
                                             ';}
                                             }
                                         ?>
-                                        <div class="track_items">
+                                        <!-- <div class="track_items">
                                             <div class="track_items-info">
                                                 <div class="track_items-avatar">
                                                     <img src="../assets/images/songs/sol7.jpg" alt=""
@@ -134,7 +200,7 @@ require_once '../admin/connect.php';
                                                     </div>
                                                 </div>
                                                 <audio controls src="../assets/audio/backtohometown.mp3"></audio>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -187,125 +253,7 @@ require_once '../admin/connect.php';
             </div>
         </div>
     </section> -->
-    <!--Modal layout -->
-    <!-- Register Form -->
-    <section>
-        <div class="modal modal-register js-modal-register">
-            <div class="modal__overlay js-modal-close">
-            </div>
-            <div class="modal__body">
-                <div class="auth-form">
-                    <div class="auth-form__container">
-    
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng ký</h3>
-                            <span class="auth-form__switch-btn btn-log-in">Đăng nhập</span>
-                        </div>
-    
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Họ và tên">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email của bạn">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Tên người dùng">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Nhập mật khẩu của bạn">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu của bạn">
-                            </div>
-                        </div>
-    
-                        <div class="auth-form__aside">
-                            <p class="auth-form__policy-text">
-                                Bằng việc đăng ký, bạn đã đồng ý với MySound về
-                                <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
-                                <a href="" class="auth-form__text-link">Chính sách bảo mật.</a>
-                            </p>
-                        </div>
-    
-                        <div class="auth-form__contrls">
-                            <button class="btn auth-form__contrl-back btn--normal js-modal-close">TRỞ LẠI</button>
-                            <button class="btn btn--primary">ĐĂNG KÝ</button>
-    
-                        </div>
-                    </div>
-                    <div class="socials-text"><i>Hoặc đăng nhập bằng</i></div>
-                    <div class="auth-form__socials">
-                        <a href="" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
-                            <i class="auth-form__social-icon fab fa-facebook-square"></i>
-                            <span class="auth-form__socials-title">Facebook</span>
-                        </a>
-                        <a href="" class="auth-form__socials--google btn btn--size-s btn--with-icon">
-                            <i class="auth-form__social-icon fab fa-google"></i>
-                            <span class="auth-form__socials-title">Google</span>
-    
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- login Form -->
-        <div class="modal modal-login js-modal-login">
-            <div class="modal__overlay js-modal-close">
-            </div>
-            <div class="modal__body">
-                <div class="auth-form">
-                    <div class="auth-form__container">
-    
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng nhập</h3>
-                            <span class="auth-form__switch-btn btn-sign-up">Đăng ký</span>
-                        </div>
-    
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email của bạn">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="password" class="auth-form__input" placeholder="Nhập mật khẩu của bạn">
-                                <div id="eye">
-                                    <i class="far fa-eye"></i>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="auth-form__aside">
-                            <div class="auth-form__help">
-                                <a href="" class="auth-form__help-fogot auth-form__help-link">Quên mật khẩu</a>
-                                <span class="auth-form__help-separate"></span>
-                                <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
-                            </div>
-                        </div>
-    
-                        <div class="auth-form__contrls">
-                            <button class="btn auth-form__contrl-back btn--normal js-modal-close">TRỞ LẠI</button>
-                            <button class="btn btn--primary">ĐĂNG NHẬP</button>
-    
-                        </div>
-                    </div>
-                    <div class="socials-text"><i>Hoặc đăng nhập bằng</i></div>
-                    <div class="auth-form__socials">
-                        <a href="" class="auth-form__socials--facebook btn btn--size-s btn--with-icon">
-                            <i class="auth-form__social-icon fab fa-facebook-square"></i>
-                            <span class="auth-form__socials-title">Facebook</span>
-                        </a>
-                        <a href="" class="auth-form__socials--google btn btn--size-s btn--with-icon">
-                            <i class="auth-form__social-icon fab fa-google"></i>
-                            <span class="auth-form__socials-title">Google</span>
-    
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </section>
+
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -313,9 +261,6 @@ require_once '../admin/connect.php';
 
     <script src="https://unpkg.com/wavesurfer.js@4.6.0/dist/wavesurfer.js"></script>
     <!-- <script src="../js/player.js"></script> -->
-    <script src="../js/modal.js"></script>
 </body>
 
 </html>
-
-?>

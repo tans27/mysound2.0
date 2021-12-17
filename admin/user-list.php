@@ -2,6 +2,12 @@
 require_once 'connect.php';
 include 'layout/header.php';
 $conn = ConnectDB();
+session_start();
+if(empty($_SESSION['user']))
+{
+    header('Location: ../account/login/login.php');
+    exit;
+}
 ?>
 <div class="container-fluid">
   <div class="row">

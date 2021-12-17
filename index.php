@@ -1,11 +1,11 @@
-<?php 
-    session_start();
-    // if(!isset($_SESSION["user"])){
-    //     header("location:./account/login/login.php");
-    // }
-    include "./layout/header.php";
-    require_once './admin/connect.php';
-    $connect = ConnectDB();
+<?php
+session_start();
+// if(!isset($_SESSION["user"])){
+//     header("location:./account/login/login.php");
+// }
+include "./layout/header.php";
+require_once './admin/connect.php';
+$connect = ConnectDB();
 
 ?>
 
@@ -22,22 +22,23 @@
                         <span class="item_title"> Khám phá </span>
                         <div class="slick-initialized slick-slider">
                             <div class="slick-list">
-                                <a href="./browse/genre.html" class="list_item">
-                                    <?php 
-						            $sql = "select * from genres";
-						            $result = $connect->query($sql);
-						
-						            if ($result->num_rows > 0) {
-						            // output data of each row
-						            while($row = $result->fetch_assoc()) {
-                                        echo '
-                                        <a href="./browse/genre.html" class="list_item">
-                                            <img src="./admin/upload/genre/'.$row['image'].'" alt="" />
-                                            <span class="item_name">'.$row["genre_name"].'</span>
-                                        </a>
-                                    ';}
-						           }
-					            ?>
+                                    <?php
+                                    $sql = "select * from genres";
+                                    $result = $connect->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        // output data of each row
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo '
+                                                <a href="./browse/genre.php?id='.$row['id'].'" class="list_item">
+                                                    <img src="./admin/upload/genre/' . $row['image'] . '" alt="" />
+                                                    <span class="item_name">' . $row["genre_name"] . '</span>
+                                                </a>
+                                            ';
+                                        }
+                                        
+                                    }
+                                    ?>
 
                                     <a class="list_item">
                                         <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Stylish-Beats.jpg"

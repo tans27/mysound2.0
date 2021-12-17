@@ -43,6 +43,7 @@ $sql_music = "CREATE TABLE musics (
     `file` VARCHAR(100) NOT NULL ,
     `genre_id` INT(6) NOT NULL ,
     `image` VARCHAR(100) NOT NULL ,
+    `uploaded_by` VARCHAR(100) NOT NULL ,
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)"
     ;
 
@@ -74,6 +75,8 @@ $sql_user = "CREATE TABLE user (
     `fullname` VARCHAR(100) NOT NULL ,
     `email_user` VARCHAR(100) NOT NULL ,
     `user_type` VARCHAR(100) NOT NULL ,
+    `avatar_user` VARCHAR(100) NOT NULL ,
+
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)"
     ;
     

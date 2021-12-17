@@ -25,6 +25,7 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto",sans-serif;
 }
 
 *:before,
@@ -155,5 +156,16 @@ audio::-webkit-media-controls-mute-button {
 }
 
 
+.facb{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.mb-2{
+    margin-bottom: 16px;
+}
 
+.bd-none{
+    border: none !important;
+}

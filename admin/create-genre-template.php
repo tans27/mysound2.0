@@ -2,6 +2,13 @@
 require_once 'connect.php';
 include 'layout/header.php';
 $conn = ConnectDB();
+session_start();
+if(empty($_SESSION['user']))
+{
+    header('Location: ../account/login/login.php');
+    exit;
+}
+
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -18,15 +25,15 @@ $conn = ConnectDB();
                 <h1>Admin</h1>
             </div>
 
-            <form action="create-genre.php" method="post">
+            <form action="create-genre.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Nhập thể loại</label>
-                    <input name="genre" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên thể loại">
+                    <input name="genre" type="text" class="form-control" placeholder="Nhập tên thể loại">
                 </div>
 
                 <div class="form-group">
                     <label>Ảnh thể loại</label>
-                    <input type="file" name="fileToUpload"  class="form-control-file">
+                    <input type="file" name="fileToUpload"  id="fileToUpload"  class="form-control-file" accept=".jpg,.png,.jpeg">
                 </div>
 
                 <input type='submit' value='submit' name='submit'>

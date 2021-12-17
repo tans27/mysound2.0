@@ -1,0 +1,161 @@
+.container_player {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+/* Audio player */
+.audio-player {
+    position: fixed;
+    bottom: 0rem;
+    width: 100%;
+    max-width: 150rem;
+    max-height: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    background-color: var(--secondary-background-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0.2rem 0.2rem 1rem 0.2rem var(--box-shadow-color);
+    z-index: 3;
+    .play-button {
+        min-width: 5rem;
+        min-height: 5rem;
+        /* Reset default button styles */
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        &-icon {
+            width: 50px !important;
+            margin: auto;
+        }
+        &-icon.filter {
+            width: 24px !important;
+            filter: invert(34%) sepia(91%) saturate(2875%) hue-rotate(321deg) brightness(101%) contrast(90%);
+        }
+    }
+}
+/* Play button */
+
+/* Main player body, which includes title, waveform, volume and timecode */
+.player-body {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 1rem;
+    width: 100%;
+    padding: 1rem;
+}
+/* Audio track title */
+.title {
+    font-weight: 600;
+    width: 15%;
+}
+/* Main waveform */
+.waveform {
+    width: 100%;
+    min-height: 2rem;
+    padding: 0.5rem 0;
+}
+/* Controls include volume mute/unmute, volume slider and timecode */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* Timecode */
+.timecode {
+    color: #000;
+}
+/* Volume */
+.volume {
+    display: flex;
+    align-items: center;
+}
+.volume-icon {
+    height: 28px;
+    width: 28px;
+    cursor: pointer;
+}
+.volume-slider {
+    margin: 0 1rem;
+    cursor: pointer;
+    width: 100%;
+    outline: none;
+    -webkit-appearance: none;
+    background: transparent;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    background: #f23d75;
+    margin-top: -0.6rem;
+}
+.volume-slider::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    background: #f23d75;
+}
+.volume-slider::-ms-thumb {
+    -webkit-appearance: none;
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    background: #f23d75;
+}
+.volume-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 0.25rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+.volume-slider::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    width: 100%;
+    height: 0.25rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+}
+/* Muted/disabled volume slider */
+.volume-slider[disabled] {
+    cursor: not-allowed;
+}
+.volume-slider[disabled]::-webkit-slider-thumb {
+    background-color: var(--disabled-button-color);
+}
+.volume-slider[disabled]::-moz-range-thumb {
+    background-color: var(--disabled-button-color);
+}
+.volume-slider[disabled]::-ms-thumb {
+    background-color: var(--disabled-button-color);
+}
+.volume-slider[disabled]::-webkit-slider-runnable-track {
+    background-color: var(--disabled-button-color);
+}
+.volume-slider[disabled]::-ms-track {
+    background-color: var(--disabled-button-color);
+}
+
+.download{
+    a{
+        img{
+            height: 28px;
+            max-width:  28px;
+        }
+    }
+}

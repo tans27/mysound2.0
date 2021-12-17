@@ -1,5 +1,6 @@
 <?php
 require_once 'connect.php';
+session_start();
 
 if(isset($_POST['submit'])){
     $conn = ConnectDB();
@@ -8,6 +9,7 @@ if(isset($_POST['submit'])){
     $name_audio = $_POST['music_name'];
     $artist = $_POST['artist'];
     $genre_id = $_POST['genre_id'];
+    $uploaded_by = $_SESSION['user'];
 
     //lấy tên file ảnh
     $name_img = $_FILES['fileToUpload']['name'];
@@ -39,11 +41,12 @@ if(isset($_POST['submit'])){
     // Check extension
     if( in_array($imageFileType,$extensions_img_arr) && in_array($audioFileType,$extensions_audio_arr) ){
         // Insert record
-        $sql = "INSERT INTO musics (name, artist, genre_id, file, image) VALUES ('$name_audio','$artist', '$genre_id', '$audio_img','$name_img')";
+        $sql = "INSERT INTO musics (name, artist, genre_id, file, image,uploaded_by) VALUES ('$name_audio','$artist', '$genre_id', '$audio_img','$name_img','$uploaded_by')";
 
         if (mysqli_query($conn, $sql)) {
             $message = "Bạn đã upload thành công";
             echo "<script type='text/javascript'>alert('$message');</script>";
+            header("location:.././index.php");
             
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

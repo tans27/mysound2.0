@@ -7,7 +7,6 @@
 <script src="https://unpkg.com/wavesurfer.js@4.6.0/dist/wavesurfer.js"></script>
 <!-- <script src="/js/player.js"></script> -->
 
-<script src="./js/modal.js"></script>
 </body>
 
 </html>

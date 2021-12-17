@@ -7,7 +7,9 @@
         width: 15%;
         height: 100vh;
         padding: 25px 31px;
-        position: relative;
+        position: fixed;
+        top: 0;
+        bottom: 0;
         max-height: 100vh;
         border-right: 1px solid #e6e6e6;
         overflow-y: auto;
@@ -24,13 +26,13 @@
         width: 85%;
         max-width: 100%;
         height: 100vh;
+        position: absolute;
+        left: 15%;
+        top: 0;
     }
 }
 
 .layout_sidebar {
-    
-
-
     .active {
         color: #000;
         text-decoration: none;
@@ -48,7 +50,7 @@
         .menu_item {
             color: #aaa;
 
-            >span{
+            > span {
                 font-size: 16px;
             }
             > a {
@@ -57,12 +59,12 @@
                 display: list-item;
                 margin: 20px 0;
 
-                span{
+                span {
                     font-size: 18px;
                 }
             }
 
-            a:hover{
+            a:hover {
                 color: #000;
             }
             .bi {
@@ -73,7 +75,7 @@
                 color: #000;
             }
         }
-        
+
         .active {
             a {
                 font-weight: 700;

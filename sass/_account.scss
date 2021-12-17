@@ -41,7 +41,13 @@
 
 .account_profile {
     &-avatar{
-        max-width: 15rem;
+        .account_avatar{
+            max-width: 15rem;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        }
+        
     }
     display:flex;
     justify-content: space-between;

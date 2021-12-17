@@ -16,7 +16,7 @@ body{
 }
 
 body,html{
-    font-size: 13px;
+    font-size: 14px;
     font-family: $primary-font;
 
 }
@@ -71,6 +71,14 @@ input {
     border: none;
     border-radius: 10px;
     background-color: #F2F2F2;
-    padding-left: 10px;
+    padding: 10px;
     font-family: "Noto Sans JP", sans-serif;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+.margin_none{
+    margin: 0 !important;
 }

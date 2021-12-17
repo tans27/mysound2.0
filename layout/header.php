@@ -10,16 +10,15 @@
     <link rel="icon" href="./assets/images/logo-thumb.png" />
 
     <link rel="stylesheet" href="./css/app.css" />
+    <!-- <link rel="stylesheet" href="../css/app.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css" />
-    
+
 </head>
 
 <body>
@@ -31,14 +30,14 @@
             <div class="layout_sidebar-menu">
                 <ul>
                     <li class="menu_item active">
-                        <a href="#"><i class="bi bi-music-note-beamed"></i><span>Khám Phá</span></a>
+                        <a href="index.php"><i class="bi bi-music-note-beamed"></i><span>Khám Phá</span></a>
                     </li>
                     <li class="menu_item">
                         <span><i class="bi bi-music-player-fill"></i><span>Podcast
                             </span><small>(commingsoon)</small></span>
                     </li>
                     <li class="menu_item">
-                        <a href=""><i class="bi bi-activity"></i><span>Trending</span></a>
+                        <a href="./browse/newest.php"><i class="bi bi-activity"></i><span>Bài hát mới</span></a>
                     </li>
                     <li>
                         <hr />
@@ -62,11 +61,14 @@
             <header class="header">
                 <div class="header_main">
                     <div class="header_main-search">
-                        <form action="." class="search">
-                            <button class="search_button">
-                                <i class="bi bi-search"></i>
-                            </button>
-                            <input type="text" class="search_input" placeholder="Tìm kiếm bài hát, nghệ sĩ, thể loại" />
+                        <form action="browse/search.php" class="search" method="get">
+                            <input class="search_button bd-none" type="submit" name="ok" value="search" style="visibility: hidden;">
+                                <button class="search_button">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </input>
+                            <input type="text" name="search" class="search_input"
+                                placeholder="Tìm kiếm bài hát, nghệ sĩ, thể loại" />
                         </form>
                     </div>
                     <!-- <div class="header_main-btn">

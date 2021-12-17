@@ -15,17 +15,18 @@ if(isset($_POST['submit'])){
 	}
 
     //thư mục upload ảnh
-    $target_dir = "upload/genre/";
 
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $target_img_dir = "upload/genre/";
+
+    $target_img_file = $target_img_dir . basename($_FILES["fileToUpload"]["name"]);
 
     // Select file type
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    $imageFileType = strtolower(pathinfo($target_img_file,PATHINFO_EXTENSION));
 
     // Valid file extensions
     $extensions_arr = array("jpg","jpeg","png","gif");
 
-    if( in_array($audioFileType,$extensions_audio_arr) ){
+    if( in_array($imageFileType,$extensions_arr) ){
         // Insert record
         $sql = "INSERT INTO genres (genre_name, image) VALUES ('$genre_name', '$genre_img')";
 
@@ -37,6 +38,8 @@ if(isset($_POST['submit'])){
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
         mysqli_close($conn);
+
+        move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$target_img_dir.$genre_img);
 
     }
     else {

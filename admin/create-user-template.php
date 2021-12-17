@@ -2,6 +2,12 @@
 require_once 'connect.php';
 include 'layout/header.php';
 $conn = ConnectDB();
+session_start();
+if(empty($_SESSION['user']))
+{
+    header('Location: ../account/login/login.php');
+    exit;
+}
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -34,8 +40,8 @@ $conn = ConnectDB();
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Loại tài khoản</label>
                     <select name="user_type" class="form-control" id="exampleFormControlSelect1">
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
+                        <option value="0">Admin</option>
+                        <option value="1">User</option>
                     </select>
                 </div>
 
