@@ -129,13 +129,13 @@ $connect = ConnectDB();
                     <div class="container">
                         <div class="home_page-title">
                             <span class="title_heading">Tìm Kiếm</span>
-                            <span class="title_sub-heading">Nắm bắt âm nhạc xu hướng hiện tại.</span>
+                            <span class="title_sub-heading">Tìm kiếm mọi thứ.</span>
                         </div>
                         <div class="home_page-content">
                             <div class="content_wrapper">
                             
                                 <div class="content_wrapper-item">
-                                    <span class="item_title"> Khám phá </span>
+                                    <span class="item_title"> Bài hát </span>
                                 </div>
                                 <div class="content_wrapper-tracks">
                                     <div class="track">
@@ -178,25 +178,63 @@ $connect = ConnectDB();
                                             ';}
                                             }
                                         ?>
-
+                                        </div>
+                                <div class="content_wrapper-item">
+                                    <span class="item_title"> Ca sĩ </span>
+                                
                                             <?php
-                                            $sql = "SELECT DISTINCT `artist` FROM `musics` WHERE `artist` LIKE '%$search%'";
-                                            $result = $connect->query($sql);
-                                            if ($result->num_rows > 0) {
+                                            $sql1 = "SELECT DISTINCT * FROM `artist` WHERE `artist_name` LIKE '%$search%'";
+                                            $result1 = $connect->query($sql1);
+                                            if ($result1->num_rows > 0) {
                                                 // output data of each row
-                                                while($row = $result->fetch_assoc()) {
+                                                while($row1 = $result1->fetch_assoc()) {
                                                     echo '
                                                 <div class="track_items">
                                                     <div class="track_items-info">
-
+                                                        <div class="track_items-avatar">
+                                                            <img src="../admin/upload/artist/'.$row1['image'].'" alt="" class="music_img" />
+                                                        </div>
                                                         <div class="track_desc">
                                                             <div class="music_artist">
-                                                                <a href="./artist.php?artist='.$row['artist'].'">'.$row["artist"].'</a>
+                                                                <a href="./artist.php?artist='.$row1['artist_name'].'">'.$row1["artist_name"].'</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>';}}
                                                 ?>
+                                    </div>
+                                    <div class="content_wrapper-item">
+                                        <span class="item_title"> Người Dùng </span>
+                                    
+                                    <?php
+                                            $sql2 = "SELECT DISTINCT * FROM `user` WHERE `username_user` LIKE '%$search%'";
+                                            $result2 = $connect->query($sql2);
+                                            if ($result2->num_rows > 0) {
+                                                // output data of each row
+                                                while($row2 = $result2->fetch_assoc()) {
+                                                    echo '
+                                                <div class="track_items">
+                                                    <div class="track_items-info">
+                                                        <div class="track_items-avatar">';
+                                                        if (isset($row2['image']) && $row2['image']){
+                                                            echo'
+                                                            <img src="../admin/upload/user/'.$row2['image'].'" alt="" class="music_img" />';
+                                                        }
+                                                        else{
+                                                            echo'
+                                                            <img src="../assets/images/default-avatar.jpg" alt="" class="music_img" />';
+                                                        };
+                                                        echo'
+                                                        </div>
+                                                        <div class="track_desc">
+                                                            <div class="music_artist">
+                                                                <a href="./user.php?username='.$row2['username_user'].'">'.$row2["username_user"].'</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>';}}
+                                                ?>
+                                                </div>
                                     </div>
                                 </div>
                             </div>
