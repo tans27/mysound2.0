@@ -429,6 +429,7 @@ input[type=submit] {
   border-radius: 15px;
   height: 180px;
   width: 180px;
+  object-fit: cover;
 }
 .slick-slider .slick-dots {
   display: none !important;
@@ -451,7 +452,7 @@ input[type=submit] {
   border: none;
 }
 .slick-slider .slick-next {
-  right: 70px;
+  right: 5px;
 }
 .slick-slider .slick-prev {
   left: -5px;
@@ -571,6 +572,7 @@ input[type=submit] {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
+  object-fit: cover;
 }
 .account_profile-info .info_name {
   font-weight: 700;

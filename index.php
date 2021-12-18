@@ -39,49 +39,65 @@ $connect = ConnectDB();
                                         
                                     }
                                     ?>
-
-                                    <a class="list_item">
-                                        <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Stylish-Beats.jpg"
-                                            alt="" />
-                                        <span class="item_name">Nhạc Rap</span>
-                                    </a>
                             </div>
                         </div>
                     </div>
                     <div class="content_wrapper-item">
-                        <span class="item_title"> Thể loại </span>
+                        <span class="item_title"> Chào Người Dùng Mới </span>
                         <div class="slick-initialized slick-slider">
                             <div class="slick-list">
-                                <a class="list_item">
-                                    <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Vintage-Beats.jpg"
-                                        alt="" />
-                                    <span class="item_name">Nhạc Vintage</span>
-                                </a>
-                                <a class="list_item">
-                                    <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Chillhop-Beats.jpg"
-                                        alt="" />
-                                    <span class="item_name">Nhạc Chillhop</span>
-                                </a>
-                                <a class="list_item">
-                                    <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Hip-Hop-Beats.jpg"
-                                        alt="" />
-                                    <span class="item_name">Nhạc Hiphop</span>
-                                </a>
-                                <a class="list_item">
-                                    <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Lo-fi-Beats.jpg"
-                                        alt="" />
-                                    <span class="item_name">Nhạc Lo-fi</span>
-                                </a>
-                                <a class="list_item">
-                                    <img src="https://cdn.uppbeat.io/images/UppBeat_Playlists_Beats_Trap.jpg" alt="" />
-                                    <span class="item_name">Nhạc Trap</span>
-                                </a>
+                            <?php
+                                    $sql1 = "select * from user";
+                                    $result1 = $connect->query($sql1);
+
+                                    if ($result1->num_rows > 0) {
+                                        // output data of each row
+                                        while ($acc = $result1->fetch_assoc()) {
+                                            echo '
+                                                <a class="list_item" href="./browse/user.php?user='.$acc['username_user'].'">
+                                                ';
+                                                if (isset($acc['avatar_user']) && $acc['avatar_user']){
+                                                    echo' 
+                                                    <img src="./admin/upload/user/' . $acc['avatar_user'] . '"
+                                                    ';}
+                                                    else{
+                                                        echo'
+                                                    <img src="./assets/images/default-avatar.jpg"';
+                                                    };
+                                                    echo'
+                                                        alt="" />
+                                                    <span class="item_name"><i>@' . $acc['username_user'] . '</i></span>
+                                                </a>';}}?>
                             </div>
                         </div>
                     </div>
                     <div class="content_wrapper-item">
-                        <span class="item_title"> Thể loại </span>
+                        <span class="item_title"> Playlist Ca sĩ </span>
                         <div class="slick-initialized slick-slider"></div>
+                        <div class="slick-list">
+                            <?php
+                                    $sql2 = "SELECT artist.artist_name, musics.artist, artist.image, COUNT(musics.artist) as c FROM artist, musics WHERE artist.artist_name=musics.artist GROUP BY artist ORDER BY c DESC LIMIT 10;";
+                                    $result2 = $connect->query($sql2);
+
+                                    if ($result2->num_rows > 0) {
+                                        // output data of each row
+                                        while ($art = $result2->fetch_assoc()) {
+                                            echo '
+                                                <a class="list_item" href="./browse/artist.php?artist='.$art['artist'].'">
+                                                ';
+                                                if (isset($art['image']) && $art['image']){
+                                                    echo' 
+                                                    <img src="./admin/upload/artist/' . $art['image'] . '"
+                                                    ';}
+                                                    else{
+                                                        echo'
+                                                    <img src="./assets/images/logo-thumb.png"';
+                                                    };
+                                                    echo'
+                                                        alt="" />
+                                                    <span class="item_name">'. $art['artist'] . '</span>
+                                                </a>';}}?>
+                            </div>
                     </div>
                 </div>
             </div>

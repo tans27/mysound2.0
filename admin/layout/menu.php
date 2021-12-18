@@ -15,13 +15,19 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="user-list.php">
-                    <span data-feather="shopping-cart"></span>
+                    <span data-feather="user"></span>
                     Người dùng
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="artist-list.php">
+                    <span data-feather="users"></span>
+                    Danh sách ca sĩ
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="genre-list.php">
-                    <span data-feather="shopping-cart"></span>
+                    <span data-feather="grid"></span>
                     Danh sách thể loại
                 </a>
             </li>

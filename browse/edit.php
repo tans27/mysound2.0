@@ -190,6 +190,8 @@ if(empty($_SESSION['user']))
                                             <div class="form-group">
                                                 <p>Preview Bài hát</p>
                                                 <audio controls src="../admin/upload/music/audio/'.$music['file'].'"></audio>
+                                                <a href="../admin/upload/music/audio/'.$music['file'].'" download="'.$music["name"].'.mp3">Download</a>
+
                                             </div>
                                             <input type="submit" value="Lưu" name="save">
                                         </form>

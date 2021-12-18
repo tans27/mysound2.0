@@ -8,6 +8,7 @@
             border-radius: 15px;
             height: 180px;
             width: 180px;
+            object-fit: cover;
         }
     }
     .slick-dots{
@@ -33,7 +34,7 @@
     }
 
     .slick-next {
-        right: 70px;
+        right: 5px;
     }
 
     .slick-prev {

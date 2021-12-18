@@ -11,12 +11,12 @@ if(isset($_POST['save'])){
     $email = $_POST['email'];
 
     //lấy tên file ảnh
-    $name_img = $_FILES['fileToUpload']['name'];
+    $name_img = $_FILES['file']['name'];
 
     //thư mục upload ảnh
     $target_img_dir = "upload/users/";
 
-    $target_img_file = $target_img_dir . basename($_FILES["fileToUpload"]["name"]);
+    $target_img_file = $target_img_dir . basename($_FILES["file"]["name"]);
 
 
 
@@ -30,12 +30,13 @@ if(isset($_POST['save'])){
     // Check extension
     if( in_array($imageFileType,$extensions_img_arr)){
         // Insert record
-        $sql = "UPDATE user SET fullname='$fullname',email_user='$email',`avatar_user`='$name_img' WHERE `username_user` =$username";
+        $sql = "UPDATE user SET fullname='$fullname',email_user='$email',`avatar_user`='$name_img' WHERE `username_user` ='$username'";
 
         if (mysqli_query($conn, $sql)) {
             $message = "Bạn đã thay đổi thông tin thành công";
             echo "<script type='text/javascript'>alert('$message');</script>";
-            header("location:.././browse/account.php?username='$username'");
+            header("location:.././browse/account.php?username=$username");
+            $_SESSION["avatar_user"] = $name_img;
             
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -43,7 +44,7 @@ if(isset($_POST['save'])){
         mysqli_close($conn);
 
         // Upload file
-        move_uploaded_file($_FILES['fileToUpload']['tmp_name'],$target_img_dir.$name_img);
+        move_uploaded_file($_FILES['file']['tmp_name'],$target_img_dir.$name_img);
 
     }
     else {

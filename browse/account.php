@@ -155,7 +155,7 @@ if(empty($_SESSION['user']))
                                         $row = $result->fetch_assoc(); 
                                         echo'
                                     
-                                    <form action="../admin/edit_profile.php" method="post">
+                                    <form action="../admin/edit_profile.php" method="post" enctype="multipart/form-data">
                                         <div class="account_wrapper">
                                             <div class="account_profile">';
                                             if (isset($_SESSION['avatar_user']) && $_SESSION['avatar_user']){
@@ -185,7 +185,7 @@ if(empty($_SESSION['user']))
                                                 </div>
                                                 <div class="field">
                                                     <span class="field_title">Đổi ảnh đại diện</span>
-                                                    <input type="file" name="fileToUpload" id="fileToUpload" class="field_input" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg">
+                                                    <input type="file" name="file" id="fileToUpload" class="field_input" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg,image/jpg">
                                                 </div>
                                                 <div class="field_button">
                                                     <input type="submit" name="save" class="btn btn-border save_btn"></input>

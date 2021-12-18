@@ -172,6 +172,7 @@ $connect = ConnectDB();
                                                             </div>
                                                         </div>
                                                         <audio controls src="../admin/upload/music/audio/'.$row['file'].'"></audio>
+                                                        <a href="../admin/upload/music/audio/'.$row['file'].'" download="'.$row["name"].'.mp3">Download</a>
                                                     </div>
                                                 </div>
                                             ';}

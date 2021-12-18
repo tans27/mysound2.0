@@ -38,7 +38,7 @@ if (!$connect) {
 // sql to create table musics
 $sql_music = "CREATE TABLE musics (
     `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(30) NOT NULL ,
+    `name` VARCHAR(100) NOT NULL ,
     `artist` VARCHAR(30) NOT NULL ,
     `file` VARCHAR(100) NOT NULL ,
     `genre_id` INT(6) NOT NULL ,
@@ -57,6 +57,20 @@ if (mysqli_query($connect, $sql_music)) {
 $sql_genre = "CREATE TABLE genres (
     `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `genre_name` VARCHAR(30) NOT NULL,
+    `image` varchar(100) NOT NULL, 
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)"
+    ;
+
+if (mysqli_query($connect, $sql_genre)) {
+    echo "Table categories created successfully";
+} else {
+    echo "Error creating table: " . mysqli_error($connect);
+}
+
+// create table artist
+$sql_artist = "CREATE TABLE artist (
+    `id` INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    `artist_name` VARCHAR(30) NOT NULL,
     `image` varchar(100) NOT NULL, 
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)"
     ;

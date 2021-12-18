@@ -109,7 +109,7 @@ $connect = ConnectDB();
                     
                                     <ul class="acc_menu">
                                         <li class="header__navbar-user-item">
-                                            <a href="../browse/account.html">Tài khoản của tôi</a>
+                                        <a href="./account.php?username='.$_SESSION['user'].'">Tài khoản của tôi</a>
                                         </li>
                                         <li class="header__navbar-user-item">
                                             <a href="./upload.php">Upload nhạc</a>
